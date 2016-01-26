@@ -24,10 +24,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(session({
-	//secret: 'secret',
-	//key: 'user',
-	//resave: true,
-	//saveUninitialized: false,
+	secret: 'secret',
+	key: 'user',
+	resave: true,
+	saveUninitialized: false,
 	cookie: {maxAge: 60000, secure: false}
 }));
 

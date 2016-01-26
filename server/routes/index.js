@@ -16,6 +16,7 @@ router.get('/fail', function(request, response){
 });
 
 router.get('/success', function(request, response){
+	console.log('Request user on success route', request.user);
 	response.sendFile(path.join(__dirname, '../public/views/success.html'));
 });
 
