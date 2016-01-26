@@ -35,10 +35,12 @@ app.use('/', index);
 
 
 passport.serializeUser(function(user, done){
+    console.log('serializeUser', user);
 	done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done){
+    console.log('deserializeUser', id);
 	pg.connect(connectionString, function(err, client){
 		var user = {};
 
@@ -56,6 +58,8 @@ passport.use('local', new localStrategy({
 	passReqToCallback: true,
 	usernameField: 'username'
 }, function(req, username, password, done){
+
+    //using postgres begins
 
 	pg.connect(connectionString, function(err, client) {
         var user = {};
